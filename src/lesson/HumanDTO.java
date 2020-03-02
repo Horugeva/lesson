@@ -23,7 +23,6 @@ public class HumanDTO implements Serializable {
         this.birthDate = birthDate;
     }
     public HumanDTO() {
-
     }
 
     public class Address{
