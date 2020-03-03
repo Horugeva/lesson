@@ -3,6 +3,7 @@ package lesson;
 import javax.xml.crypto.Data;
 import java.io.Serializable;
 
+
 public class HumanDTO implements Serializable {
     private long id;
     private String name;

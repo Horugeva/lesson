@@ -11,6 +11,7 @@ package lesson;
 // Соответственно нужны будут конвертеры из сущностей в DTO и обратно, так же не забываем, что адрес у нас отдельный класс и его тоже нужно конвертировать отдельно.
 
 
+
 import javax.xml.crypto.Data;
 import java.io.Serializable;
 import java.util.Date;
