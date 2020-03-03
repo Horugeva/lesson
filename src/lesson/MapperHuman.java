@@ -2,6 +2,7 @@ package lesson;
 
 public class MapperHuman implements Mapper<HumanEntity, HumanDTO>{
 
+
     private void AddressEntityMapper(HumanEntity.Address addressEntity, HumanDTO.Address addressDTO) {
         addressEntity.setContry(addressDTO.getContry());
         addressEntity.setCity(addressDTO.getCity());

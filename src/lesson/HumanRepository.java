@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class HumanRepository implements Repository<HumanEntity> {
 
+
     @Override
     public HumanEntity findUser(long id) {
         return createEntity();
