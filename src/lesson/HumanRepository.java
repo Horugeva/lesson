@@ -32,7 +32,7 @@ public class HumanRepository implements Repository<HumanEntity> {
         System.out.println(list);
     }
 
-    public HumanEntity createEntity() {
+    private HumanEntity createEntity() {
         Date date;
         long ms;
         Random random = new Random();
