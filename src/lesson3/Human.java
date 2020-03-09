@@ -6,7 +6,9 @@ public class Human {
     public int age;
     private Address address;
 
+    public Human() {
 
+    }
 
 
     public static class Address {

@@ -35,7 +35,7 @@ public class Users {
      return map;
 }
 
-    public static void main(String[] args) {
+    public static void main() {
         Map<Role, Users> map = sozdanie();
 
         printPeopleList(map);

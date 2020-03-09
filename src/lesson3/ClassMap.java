@@ -29,7 +29,7 @@ public class ClassMap {
     }
 
 
-    public static void main(String[] args) {
+    public static void main() {
         map.put("Иванов", 700);
         map.put("Петров", 700);
         map.put("Сидоров", 400);

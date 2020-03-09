@@ -6,6 +6,10 @@ package lesson3;
 //4. Отсортировать людей по ФИО
 //5. Отсортировать людей по возрасту
 //6. Отсортировать людей по адресу (лексикографическая сортировка полного адреса)
+import lesson3.comparator.HumanAddressComporator;
+import lesson3.comparator.HumanAgeComporator;
+import lesson3.comparator.HumanNameComporator;
+
 import java.util.*;
 
 import static java.lang.Integer.valueOf;
@@ -22,29 +26,28 @@ public class Service {
         return super.equals(obj);
     }
 
-    public static void main(String[] args) {
-        sozdanie();
+    public static void main() {
+        createCollection();
         //  System.out.println("Наш массив");
         System.out.println("--------------------------------------------------------------------------------------------");
-        vivodDubley();
+        printDuplicates();
         System.out.println("Дублирующие строки");
         System.out.println("--------------------------------------------------------------------------------------------");
-        udalenieDubley();
+        removeDuplicates();
         System.out.println("Без дублирующих строк");
         System.out.println("--------------------------------------------------------------------------------------------");
-        sortName();
+        sortByName();
         System.out.println("Сортировка по имени");
         System.out.println("--------------------------------------------------------------------------------------------");
-        sortAge();
+        sortByAge();
         System.out.println("Сортировка по возрасту");
         System.out.println("--------------------------------------------------------------------------------------------");
-        sortAddress();
+        sortByAddress();
         System.out.println("Сортировка по адресу");
-        System.out.println("--------------------------------------------------------------------------------------------");
     }
 
 
-    public static List sozdanie() {
+    public static List createCollection() {
         ArrayList<Human> list = new ArrayList<Human>();
         list.add(new Human("Fedya", 15, new Human.Address("Kiev", "Lenina", 15, 25)));
         list.add(new Human("Masha", 18, new Human.Address("Moskow", "Lenona", 25, 15)));
@@ -60,8 +63,8 @@ public class Service {
 
     }
 
-    private static void vivodDubley() {
-        List list = sozdanie();
+    static void printDuplicates() {
+        List list = createCollection();
         ArrayList<String> list2 = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             for (int j = i + 1; j < list.size(); j++) {
@@ -75,8 +78,8 @@ public class Service {
             System.out.println(list2.get(i));
     }
 
-    public static List udalenieDubley() {
-        List list = sozdanie();
+    public static List removeDuplicates() {
+        List list = createCollection();
         for (int i = 0; i < list.size(); i++) {
             for (int j = i + 1; j < list.size(); j++) {
                 if (list.get(i).toString().equals(list.get(j).toString())) {
@@ -91,8 +94,8 @@ public class Service {
         return list;
     }
 
-    public static List ubranyDubley() {
-        List list = sozdanie();
+    public static List removeDuplicates1() {
+        List list = createCollection();
         for (int i = 0; i < list.size(); i++) {
             for (int j = i + 1; j < list.size(); j++) {
                 if (list.get(i).toString().equals(list.get(j).toString())) {
@@ -104,31 +107,10 @@ public class Service {
         return list;
     }
 
-    private static void sortName() {
-        List list = ubranyDubley();
+    static void sortByName() {
+        List list = removeDuplicates1();
 
-        list.sort(new Comparator<Human>() {
-                      @Override
-                      public int compare(Human o1, Human o2) {
-                          return o1.name.compareTo(o2.name);
-                      }
-                  }
-        );
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
-        }
-    }
-
-    private static void sortAge() {
-        List list = ubranyDubley();
-
-        list.sort(new Comparator<Human>() {
-                      @Override
-                      public int compare(Human o1, Human o2) {
-                          return Integer.valueOf(o1.age).compareTo(o2.age);
-                      }
-                  }
-        );
+        list.sort(new HumanNameComporator());
 
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
@@ -136,16 +118,21 @@ public class Service {
     }
 
 
-    private static void sortAddress() {
-        List list = ubranyDubley();
+    static void sortByAge() {
+        List list = removeDuplicates1();
 
-        list.sort(new Comparator<Human>() {
-                      @Override
-                      public int compare(Human o1, Human o2) {
-                          return o1.getAddress().toString().compareTo(o2.getAddress().toString());
-                      }
-                  }
-        );
+        list.sort(new HumanAgeComporator());
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+    }
+
+    static void sortByAddress() {
+        List list = removeDuplicates1();
+
+        list.sort(new HumanAddressComporator());
+
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
