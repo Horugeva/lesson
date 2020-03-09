@@ -1,5 +1,7 @@
 package lesson3;
 
+import java.util.Objects;
+
 public class Human {
 
     public String name;
@@ -106,5 +108,20 @@ public class Human {
                 ", age=" + age +
                 ", address=" + address +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Human human = (Human) o;
+        return age == human.age &&
+                Objects.equals(name, human.name) &&
+                Objects.equals(address, human.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, address);
     }
 }

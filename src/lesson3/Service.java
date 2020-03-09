@@ -11,6 +11,8 @@ import lesson3.comparator.HumanAgeComporator;
 import lesson3.comparator.HumanNameComporator;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.lang.Integer.valueOf;
 
@@ -79,47 +81,27 @@ public class Service {
     }
 
     public static List removeDuplicates() {
+
         List list = createCollection();
-        for (int i = 0; i < list.size(); i++) {
-            for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(i).toString().equals(list.get(j).toString())) {
-                    list.remove(j);
-                    j--;
-                }
-            }
-        }
+        list = distinct(list);
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
-        }
-        return list;
-    }
-
-    public static List removeDuplicates1() {
-        List list = createCollection();
-        for (int i = 0; i < list.size(); i++) {
-            for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(i).toString().equals(list.get(j).toString())) {
-                    list.remove(j);
-                    j--;
-                }
-            }
         }
         return list;
     }
 
     static void sortByName() {
-        List list = removeDuplicates1();
-
+        List list = createCollection();
+        list = distinct(list);
         list.sort(new HumanNameComporator());
-
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
     }
 
-
     static void sortByAge() {
-        List list = removeDuplicates1();
+        List list = createCollection();
+         list = distinct(list);
 
         list.sort(new HumanAgeComporator());
 
@@ -129,13 +111,25 @@ public class Service {
     }
 
     static void sortByAddress() {
-        List list = removeDuplicates1();
+        List list = createCollection();
+        list = distinct(list);
 
         list.sort(new HumanAddressComporator());
 
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
+    }
+    private static List<Human> distinct(List<Human> list){
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).toString().equals(list.get(j).toString())) {
+                    list.remove(j);
+                    j--;
+                }
+            }
+        }
+        return list;
     }
 }
 
