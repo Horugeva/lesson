@@ -1,6 +1,11 @@
 package lesson;
 
 
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,13 +13,18 @@ import java.util.List;
 public class HumanService implements Service<HumanDTO> {
     private Mapper<HumanEntity, HumanDTO> mapper = new MapperHuman();
     private Repository<HumanEntity> repository = new HumanRepository();
+    private Logger logger = LoggerFactory.getLogger(HumanService.class);
 
     @Override
     public HumanDTO findUser(long id) {
         HumanEntity humanEntity = repository.findUser(id);
        HumanDTO humanDTO = new HumanDTO();
-       mapper.mapAToB(humanEntity, humanDTO);
-       return humanDTO;
+       try {
+           mapper.mapAToB(humanEntity, humanDTO);
+       } catch (Exception e) {
+           logger.debug("Произошло исключение", e);
+       }
+        return humanDTO;
     }
 
     @Override
@@ -48,4 +58,6 @@ public class HumanService implements Service<HumanDTO> {
         }
         repository.saveAll(humanEntityList);
     }
+//    org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(HumanService.class);
+
 }

@@ -45,8 +45,7 @@ public class HumanRepository implements Repository<HumanEntity> {
             word[j] = (char) ('a' + random.nextInt(26));
         }
         randomStrings[1] = new String(word);
-        HumanEntity humanEntity = new HumanEntity((long) id, new String(word), date);
-        return humanEntity;
+        return new HumanEntity(id, new String(word), date);
     }
 }
 
