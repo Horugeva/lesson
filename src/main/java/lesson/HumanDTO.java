@@ -4,7 +4,7 @@ import javax.xml.crypto.Data;
 import java.io.Serializable;
 
 
-public class HumanDTO implements Serializable {
+public class HumanDTO{
     private long id;
     private String name;
     private Data birthDate;

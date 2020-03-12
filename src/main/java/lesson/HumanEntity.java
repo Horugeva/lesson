@@ -16,7 +16,7 @@ import javax.xml.crypto.Data;
 import java.io.Serializable;
 import java.util.Date;
 
-public class HumanEntity implements Serializable {
+public class HumanEntity{
     private long id;
     private String name;
     private Date birthDate;
