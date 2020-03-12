@@ -20,8 +20,11 @@
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${user.home}/log.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</Pattern>
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss} - %msg%n
+            </Pattern>
         </encoder>
+
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily -->
             <fileNamePattern>${user.home}/log.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
@@ -31,9 +34,10 @@
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
     </appender>
+
     <logger name="untitled1.src.main.java.lesson4.MapperHuman" level="debug" additivity="false">
-    </logger>
     <appender-ref ref="FILE"/>
+    </logger>
 
 <appender name="FILE-CONSOLE"
           class="ch.qos.logback.core.rolling.RollingFileAppender">
