@@ -1,7 +1,6 @@
 package lesson;
 
 import lesson4.EntityCreationException;
-import lesson4.MyNewException;
 import lesson4.RepositoryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,12 +16,12 @@ public class HumanRepository implements Repository<HumanEntity> {
     @Override
     public HumanEntity findUser(long id) throws RepositoryException {
         try {
-            createEntity();
-    } catch (Exception e){
+         return createEntity();
+    } catch (EntityCreationException e){
         logger.debug("Произошло исключение при создании сущности", e);
             throw new RepositoryException("RepositoryException");
     }
-        return createEntity();
+
     }
 
     @Override
@@ -30,12 +29,12 @@ public class HumanRepository implements Repository<HumanEntity> {
         createEntity();
         List<HumanEntity> humanEntityList = new ArrayList<>();
         try {
-            humanEntityList.add(createEntity());
-        }catch (Exception e){
+                    humanEntityList.add(createEntity());
+                    return humanEntityList;
+        }catch (EntityCreationException e){
             logger.debug("Произошла ошибка создания списка", e);
             throw new RepositoryException("RepositoryException");
         }
-        return humanEntityList;
     }
 
     @Override

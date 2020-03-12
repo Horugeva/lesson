@@ -6,12 +6,12 @@ package lesson4;
 //Использовать разные аппендеры для разных логгеров
 //Использовать slf4j + logback.xml
 
-public class MyNewException extends Exception {
-    public MyNewException(String message) {
+public class MapperException extends Exception {
+    public MapperException(String message) {
         super(message);
     }
 
-    public MyNewException() throws MyNewException {
-        throw new MyNewException("MyNewException");
+    public MapperException() throws MapperException {
+        throw new MapperException("MapperException");
     }
 }
