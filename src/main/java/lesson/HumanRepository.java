@@ -1,5 +1,7 @@
 package lesson;
 
+import lesson4.EntityCreationException;
+import lesson4.MyNewException;
 import lesson4.RepositoryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

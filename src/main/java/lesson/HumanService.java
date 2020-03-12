@@ -13,7 +13,7 @@ public class HumanService implements Service<HumanDTO> {
     private Logger logger = LoggerFactory.getLogger(HumanService.class);
 
     @Override
-    public HumanDTO findUser(long id) throws EntityCreationException {
+    public HumanDTO findUser(long id){
 
        HumanDTO humanDTO = new HumanDTO();
        try {
