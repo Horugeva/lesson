@@ -21,7 +21,8 @@ public class SAXPlant {
         AdvancedXMLHandler handler = new AdvancedXMLHandler();
         parser.parse(new File("file.xml"), handler);
         for (Plant plant : plants)
-            System.out.println(String.format("Название растения: %s %s %s %s %s %s", plant.getName(), plant.getBotanical(), plant.getZone(), plant.getLight(), plant.getPrice(), plant.getAvailability()));
+            System.out.println(String.format("Название растения: %s %s %s %s %s %s", plant.getName(),
+                    plant.getBotanical(), plant.getZone(), plant.getLight(), plant.getPrice(), plant.getAvailability()));
 
     }
 
@@ -56,7 +57,9 @@ public class SAXPlant {
         }
         @Override
             public void endElement(String uri, String localName, String qName){
-              if ( (name != null && !name.isEmpty()) && (botanical != null && !botanical.isEmpty() && (zone != null && !zone.isEmpty())  && (light != null && !light.isEmpty()) && (price != null && !price.isEmpty()) && (availability != 0))){
+              if ( (name != null && !name.isEmpty()) && (botanical != null && !botanical.isEmpty() &&
+                      (zone != null && !zone.isEmpty())  && (light != null && !light.isEmpty()) &&
+                      (price != null && !price.isEmpty()) && (availability != 0))){
 
                 plants.add(new Plant(name, botanical, zone, light, price, availability));
                 name = null;
