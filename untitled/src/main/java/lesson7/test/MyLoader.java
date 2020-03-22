@@ -1,15 +1,17 @@
-package lesson7;
+package lesson7.test;
+
+import lesson7.CustomClassloader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MyLoader extends CustomClassloader{
+public class MyLoader extends CustomClassloader {
     @Override
     public Class findClass(String name) {
-        byte[] b = loadClassFromFile(name);
-        return defineClass(name, b, 0, b.length);
+        byte[] b = loadClassFromFile("TestClass");
+        return defineClass("TestClass", b, 0, b.length);
     }
 
     private byte[] loadClassFromFile(String fileName)  {
@@ -24,6 +26,7 @@ public class MyLoader extends CustomClassloader{
             }
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("no");
         }
         buffer = byteStream.toByteArray();
         return buffer;
