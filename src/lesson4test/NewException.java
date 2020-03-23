@@ -8,15 +8,14 @@ public class NewException {
     public static void main(String[] args) {
         try {
             action();
-        }
-        catch (ArithmeticException e)
-        {
+        } catch (ArithmeticException e) {
             System.out.println("На 0 делить нельзя!");
 
         } catch (IOException e) {
             System.out.println("Любые ошибки");
         }
     }
+
     public static void action() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String a = reader.readLine();
