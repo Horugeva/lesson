@@ -7,14 +7,14 @@ public class HumanDTO implements Serializable {
     private long id;
     private String name;
     private Data birthDate;
-    private Address address;
+    private AddressDTO addressDTO;
 
-    public Address getAddress() {
-        return address;
+    public AddressDTO getAddressDTO() {
+        return addressDTO;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressDTO(AddressDTO addressDTO) {
+        this.addressDTO = addressDTO;
     }
 
     public HumanDTO(long id, String name, Data birthDate) {
@@ -26,12 +26,12 @@ public class HumanDTO implements Serializable {
     public HumanDTO() {
     }
 
-    public class Address {
+    public class AddressDTO {
         private String contry;
         private String city;
         private int index;
 
-        public Address(String contry, String city, int index) {
+        public AddressDTO(String contry, String city, int index) {
             this.contry = contry;
             this.city = city;
             this.index = index;
