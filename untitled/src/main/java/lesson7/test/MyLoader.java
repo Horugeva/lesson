@@ -8,10 +8,11 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class MyLoader extends CustomClassloader {
+    private static final String  NAMECLASS = "TestClass";
     @Override
     public Class findClass(String name) {
-        byte[] b = loadClassFromFile("TestClass");
-        return defineClass("TestClass", b, 0, b.length);
+        byte[] b = loadClassFromFile(NAMECLASS);
+        return defineClass(NAMECLASS, b, 0, b.length);
     }
 
     private byte[] loadClassFromFile(String fileName)  {
