@@ -35,6 +35,7 @@ public class SAXPlant {
         public void startElement(String uri, String localName, String qName, Attributes attributes) {
             lastElementName = qName;
         }
+
         @Override
         public void characters(char[] ch, int start, int length) {
             String information = new String(ch, start, length);
@@ -44,22 +45,23 @@ public class SAXPlant {
                     name = information;
                 if (lastElementName.equals("BOTANICAL"))
                     botanical = information;
-               if (lastElementName.equals("ZONE"))
-                   zone = information;
+                if (lastElementName.equals("ZONE"))
+                    zone = information;
                 if (lastElementName.equals("LIGHT"))
                     light = information;
                 if (lastElementName.equals("PRICE"))
-                    price =information;
-               if (lastElementName.equals("AVAILABILITY"))
+                    price = information;
+                if (lastElementName.equals("AVAILABILITY"))
                     availability = new Integer(information);
             }
 
         }
+
         @Override
-            public void endElement(String uri, String localName, String qName){
-              if ( (name != null && !name.isEmpty()) && (botanical != null && !botanical.isEmpty() &&
-                      (zone != null && !zone.isEmpty())  && (light != null && !light.isEmpty()) &&
-                      (price != null && !price.isEmpty()) && (availability != 0))){
+        public void endElement(String uri, String localName, String qName) {
+            if ((name != null && !name.isEmpty()) && (botanical != null && !botanical.isEmpty() &&
+                    (zone != null && !zone.isEmpty()) && (light != null && !light.isEmpty()) &&
+                    (price != null && !price.isEmpty()) && (availability != 0))) {
 
                 plants.add(new Plant(name, botanical, zone, light, price, availability));
                 name = null;
@@ -68,7 +70,7 @@ public class SAXPlant {
                 light = null;
                 price = null;
                 availability = 0;
-           }
+            }
         }
     }
 }

@@ -14,10 +14,9 @@ import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CreateXMLFileDOMExample {
+public class XMLBookService {
     private static final String FILENAME = "book.xml";
-
-    public static void main(String[] args) {
+    public void XMLBookCreat(){
         try {
             Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
             Element book = document.createElement("book");
@@ -47,8 +46,8 @@ public class CreateXMLFileDOMExample {
             StreamResult result = new StreamResult(new File(System.getProperty("user.dir") + File.separator + FILENAME));
             transformer.transform(source, result);
             System.out.println("Дokymeнт coхpaнeн!");
-            } catch (ParserConfigurationException | TransformerException ex) {
-            Logger.getLogger(CreateXMLFileDOMExample.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException | TransformerException ex) {
+            Logger.getLogger(CreateXMLFileDOM.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
