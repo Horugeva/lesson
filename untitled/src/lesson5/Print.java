@@ -8,17 +8,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-//print 4 fileName
-//- print команда на печать
-//4 это номер строки которую мы хотим распечатать.
-//ВНИМАНИЕ, если мы не указываем номер строки, а к примеру даем команду print, то мы печатаем весь файл.
 public class Print implements Operation {
     private Logger logger = LoggerFactory.getLogger(Print.class);
 
     @Override
     public void handle(String command, int line, String file, String text) throws IOException, CommandExecutionException {
         logger.info("Печать строки");
-        List<String> list = Files.readAllLines(Paths.get("Data.txt"));
+        List<String> list = Files.readAllLines(Paths.get(file));
         try {
 
             if (line > 0 && list.size() >= line) {

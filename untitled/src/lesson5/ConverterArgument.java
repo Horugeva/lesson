@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 public class ConverterArgument {
     private Logger logger = LoggerFactory.getLogger(ConverterArgument.class);
+
     public Argument creatArgument(String[] words) {
         logger.info("Распознавание команды");
         StringBuilder text = new StringBuilder();
@@ -34,12 +35,11 @@ public class ConverterArgument {
                 }
             }
             argument.setText(text.toString());
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.debug("Ошибка конвертации входных параметров с консоли");
             throw new ConverterException();
         }
         logger.info("Команда распознана");
         return argument;
-
     }
 }
