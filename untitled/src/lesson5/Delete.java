@@ -8,17 +8,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-//delete 5 fileName
-//- delete команда на удаление строки
-//5 номер строки которую нам необходимо удалить.
-//ВНИМАНИЕ, если мы не указываем номер строки, а к примеру даем команду delete, то мы удаляем последнюю строку из файла.
-//
 public class Delete implements Operation {
     private Logger logger = LoggerFactory.getLogger(Delete.class);
     @Override
     public void handle(String command, int line, String file, String text) throws IOException, CommandExecutionException {
         logger.info("Удаление строки");
-        List<String> list = Files.readAllLines(Paths.get("Data.txt"));
+        List<String> list = Files.readAllLines(Paths.get(file));
         try {
 
         if (line != 0 && list.size() >= line) {

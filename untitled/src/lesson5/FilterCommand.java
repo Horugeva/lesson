@@ -8,7 +8,7 @@ import java.io.IOException;
 public class FilterCommand {
     private Operation operation;
     private Logger logger = LoggerFactory.getLogger(FilterCommand.class);
-    private static final String EXCEPTION= "Произошло исключение ";
+    private static final String EXCEPTION = "Произошло исключение ";
 
     public void handle(Argument argument) throws IOException, CommandExecutionException {
         logger.info("Выбор команды");
@@ -19,16 +19,14 @@ public class FilterCommand {
             } catch (CommandExecutionException e) {
                 logger.debug(EXCEPTION, e);
             }
-        }
-       else if (argument.getCommand().equals("delete")) {
+        } else if (argument.getCommand().equals("delete")) {
             try {
                 operation = new Delete();
                 operation.handle(argument.getCommand(), argument.getLine(), argument.getFileName(), argument.getText());
             } catch (CommandExecutionException e) {
                 logger.debug(EXCEPTION, e);
             }
-        }
-      else   if (argument.getCommand().equals("print")) {
+        } else if (argument.getCommand().equals("print")) {
             try {
 
                 operation = new Print();
@@ -36,8 +34,7 @@ public class FilterCommand {
             } catch (CommandSelectionException e) {
                 logger.debug(EXCEPTION, e);
             }
-        }
-        else {
+        } else {
             logger.info("Команда не существует: {}", argument.getCommand());
             throw new CommandSelectionException("Команда не существует");
         }

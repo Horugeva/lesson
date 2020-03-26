@@ -1,6 +1,7 @@
 package lesson5;
 
 public class Argument {
+
     private String command;
     private String fileName;
     private int line = 0;
