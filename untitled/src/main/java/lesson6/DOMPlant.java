@@ -23,7 +23,6 @@ public class DOMPlant {
         for (int i = 0; i < plantElements.getLength(); i++) {
             Node plant = plantElements.item(i);
             System.out.print(plant.getTextContent());
-
         }
     }
 }

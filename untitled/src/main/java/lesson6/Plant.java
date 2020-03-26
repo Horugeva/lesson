@@ -1,7 +1,5 @@
 package lesson6;
 
-import org.w3c.dom.Node;
-
 public class Plant {
     String name, botanical, zone, light;
     int availability;
@@ -44,7 +42,7 @@ public class Plant {
         return availability;
     }
 
-    public Plant(String name, String botanical,  String zone, String light, String price, int availability) {
+    public Plant(String name, String botanical, String zone, String light, String price, int availability) {
         this.name = name;
         this.botanical = botanical;
         this.light = light;

@@ -17,16 +17,16 @@ import java.io.File;
 public class ModifyXMLFileDOM {
 
     public static void main(String[] args) {
-         File xmlFile = new File("file.xml");
+        File xmlFile = new File("file.xml");
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
         try {
             builder = factory.newDocumentBuilder();
             Document doc = builder.parse(xmlFile);
             doc.getDocumentElement().normalize();
-             updateElementValue(doc);
-               addElement(doc);
-             doc.getDocumentElement().normalize();
+            updateElementValue(doc);
+            addElement(doc);
+            doc.getDocumentElement().normalize();
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
@@ -42,7 +42,7 @@ public class ModifyXMLFileDOM {
     private static void addElement(Document doc) {
         NodeList plants = doc.getElementsByTagName("Plant");
         Element plant;
-         for(int i=0; i<plants.getLength(); i++){
+        for (int i = 0; i < plants.getLength(); i++) {
             plant = (Element) plants.item(i);
             Element contryElement = doc.createElement("contry");
             contryElement.appendChild(doc.createTextNode("Russia"));
@@ -50,10 +50,10 @@ public class ModifyXMLFileDOM {
         }
     }
 
-     private static void updateElementValue(Document doc) {
+    private static void updateElementValue(Document doc) {
         NodeList plants = doc.getElementsByTagName("Plant");
         Element plant;
-          for(int i=0; i<plants.getLength();i++){
+        for (int i = 0; i < plants.getLength(); i++) {
             plant = (Element) plants.item(i);
             Node name = plant.getElementsByTagName("COMMON").item(1).getFirstChild();
             name.setNodeValue(name.getNodeValue().toUpperCase());
