@@ -6,7 +6,8 @@ import java.net.URL;
 import java.net.URLClassLoader;
 
 public class Test {
-    private static final String PATHNAME  = "c:\\1\\";
+    private static final String PATHNAME = "c:\\1\\";
+
     public static void main(String[] args) {
         File file = new File(PATHNAME);
         try {
@@ -17,9 +18,9 @@ public class Test {
             System.out.println(classT.toString());
             System.out.println(classT.getClass());
         } catch (MalformedURLException e) {
-            System.out.println("no");
+            System.out.println("File upload exception");
         } catch (ClassNotFoundException e) {
-            System.out.println("no");
+            System.out.println("File upload exceptiono");
         }
     }
 }
