@@ -1,15 +1,10 @@
-package lesson101.src;
+package lesson101;
 
+import lesson101.annotation.Value;
 
-import lesson101.src.annotation.Entity;
-import lesson101.src.annotation.Value;
-
-@Entity
-public class HumanEntity {
-
-    @lesson10.annotation.Value(name = "TestName", filePath = "file.txt")
+public class HumanValue {
+    @Value(name = "TestName", age = 15, filePath = "file")
     String name;
-    @Value(age = 15)
     int age;
 
     public String getName() {
@@ -28,21 +23,20 @@ public class HumanEntity {
         this.age = age;
     }
 
-    public HumanEntity(String name, int age) {
+    public HumanValue(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    public HumanEntity() {
+    public HumanValue() {
 
     }
 
     @Override
     public String toString() {
-        return "HumanEntity{" +
+        return "Human{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }
 }
-

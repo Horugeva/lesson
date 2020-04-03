@@ -1,4 +1,4 @@
-package lesson101.src;
+package lesson101;
 
 public class NoValueAnnotationException extends RuntimeException {
     public NoValueAnnotationException(String message) {

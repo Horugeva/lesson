@@ -1,7 +1,7 @@
-package lesson101.src;
+package lesson101;
 
-import lesson101.src.service.impl.EntityCheckAnnotation;
-import lesson101.src.service.impl.ValueServiceAnnotation;
+import lesson101.impl.EntityCheckAnnotation;
+import lesson101.impl.ValueServiceAnnotation;
 
 import java.io.IOException;
 

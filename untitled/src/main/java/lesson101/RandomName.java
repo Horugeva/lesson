@@ -11,5 +11,4 @@ public class RandomName {
         }
         return new String("name=" + nameEntity);
     }
-
 }

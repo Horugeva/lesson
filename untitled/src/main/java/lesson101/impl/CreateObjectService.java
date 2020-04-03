@@ -1,7 +1,7 @@
-package lesson101.src.service.impl;
+package lesson101.impl;
 
 import lesson101.Data;
-import lesson101.src.HumanEntity;
+import lesson101.HumanEntity;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
