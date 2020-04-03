@@ -1,6 +1,5 @@
-package lesson101.src;
+package lesson101;
 
-import lesson101.src.service.impl.FileService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

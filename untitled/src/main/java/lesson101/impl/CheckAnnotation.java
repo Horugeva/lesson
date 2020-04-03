@@ -1,4 +1,4 @@
-package lesson101.src.service.impl;
+package lesson101.impl;
 
 public interface CheckAnnotation {
 
