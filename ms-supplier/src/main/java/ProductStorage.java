@@ -29,6 +29,8 @@ public class ProductStorage {
             productsList.add(products);
         }
         connection.close();
+        resultSet.close();
+        preparedStatement.close();
 
         return productsList;
     }
@@ -41,6 +43,7 @@ public class ProductStorage {
         preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
         connection.close();
+        preparedStatement.close();
         System.out.println("Строка удалена");
     }
 
@@ -53,6 +56,7 @@ public class ProductStorage {
         preparedStatement.setInt(2, id);
         preparedStatement.executeUpdate();
         connection.close();
+        preparedStatement.close();
     }
 
     public void insert(Products products) throws SQLException, ClassNotFoundException {
@@ -71,5 +75,6 @@ public class ProductStorage {
         preparedStatement.setInt(6, products.getCommonProdId());
         preparedStatement.executeUpdate();
         connection.close();
+        preparedStatement.close();
     }
 }
